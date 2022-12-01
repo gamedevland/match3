@@ -36,11 +36,14 @@ export class Game {
     createBackground() {
         this.bg = App.sprite("bg");
         this.bg.width = window.innerWidth;
-        this.bg.height = window.innerHeight;``
+        this.bg.height = window.innerHeight;
         this.container.addChild(this.bg);
     }
 
     onTileClick(tile) {
+        if (this.disabled) {
+            return;
+        }
         if (this.selectedTile) {
             // select new tile or make swap
             if (!this.selectedTile.isNeighbour(tile)) {
