@@ -7,6 +7,11 @@ on:
 
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     environment:
@@ -19,7 +24,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
 
-      - name: Install dependencies and Puppeteer
+      - name: Install dependencies
         run: npm i
 
       - name: Build
